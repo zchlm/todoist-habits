@@ -23,10 +23,9 @@ $app = new Laravel\Lumen\Application(
     realpath(__DIR__.'/../')
 );
 
-// $app->withFacades();
+ $app->withFacades();
 
-// $app->withEloquent();
-
+ $app->withEloquent();
 /*
 |--------------------------------------------------------------------------
 | Register Container Bindings
@@ -46,6 +45,16 @@ $app->singleton(
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
     App\Console\Kernel::class
+);
+
+$app->singleton(
+    Spatie\HttpLogger\LogProfile::class,
+    Spatie\HttpLogger\LogNonGetRequests::class
+);
+
+$app->singleton(
+    Spatie\HttpLogger\LogWriter::class,
+    Spatie\HttpLogger\DefaultLogWriter::class
 );
 
 /*

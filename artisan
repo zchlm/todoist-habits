@@ -1,6 +1,7 @@
 #!/usr/bin/env php
 <?php
 
+use Vluzrmos\Tinker\TinkerServiceProvider;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
@@ -15,7 +16,9 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 |
 */
 
-$app = require __DIR__.'/bootstrap/app.php';
+$app = require __DIR__ . '/bootstrap/app.php';
+
+$app->register(TinkerServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

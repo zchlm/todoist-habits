@@ -11,9 +11,11 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Habit::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->email,
+        't_id' => $faker->randomNumber(8),
+        'content' => "[day {$faker->randomNumber(1)}]",
+        'date_string' => 'ev workday 8:30pm',
+        'due_date' => $faker->date('D j M Y H:i:s O')
     ];
 });

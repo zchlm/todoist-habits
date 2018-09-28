@@ -11,17 +11,11 @@
 |
 */
 
-use Illuminate\Http\Request;
-
 /**
  * @var $router Laravel\Lumen\Routing\Router;
  */
-$router->get('/', function (Request $request) use ($router) {
-    eval(\Psy\sh());
-    return $router->app->version();
+$router->get('/', function () use ($router) {
+    return '...';
 });
 
-$router->post('/', function (Request $request) use ($router) {
-//    eval(\Psy\sh());
-    return $router->app->version();
-});
+$router->post('/', 'HabitController@handle');
