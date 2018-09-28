@@ -15,7 +15,7 @@ class CreateHabitsTable extends Migration
     {
         Schema::create('habits', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('t_id')->unsigned();
+            $table->bigInteger('t_id');
             $table->string('content');
             $table->string('date_string');
             $table->string('due_date');

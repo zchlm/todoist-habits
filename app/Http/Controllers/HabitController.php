@@ -32,7 +32,7 @@ class HabitController extends BaseController
             || preg_match($this->habitRegex, $request->input('event_data.content')) !== 1
         ) {
             // not a habit - do nothing
-            return response()->json([], 406);
+            return response()->json([], 400);
         }
 
         $data = $request->input('event_data');
