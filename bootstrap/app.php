@@ -72,9 +72,9 @@ $app->middleware([
     \Spatie\HttpLogger\Middlewares\HttpLogger::class
 ]);
 
-// $app->routeMiddleware([
-//     'auth' => App\Http\Middleware\Authenticate::class,
-// ]);
+ $app->routeMiddleware([
+     'validateTodoist' => App\Http\Middleware\ValidateTodoist::class
+ ]);
 
 /*
 |--------------------------------------------------------------------------

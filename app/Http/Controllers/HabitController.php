@@ -27,10 +27,7 @@ class HabitController extends BaseController
      */
     public function handle(Request $request)
     {
-        if (
-            $request->header('User-Agent') !== 'Todoist-Webhooks'
-            || preg_match($this->habitRegex, $request->input('event_data.content')) !== 1
-        ) {
+        if (preg_match($this->habitRegex, $request->input('event_data.content')) !== 1) {
             // not a habit - do nothing
             return response()->json([], 400);
         }

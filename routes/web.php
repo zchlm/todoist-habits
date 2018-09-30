@@ -18,4 +18,6 @@ $router->get('/', function () use ($router) {
     return '...';
 });
 
-$router->post('/', 'HabitController@handle');
+$router->group(['middleware' => 'validateTodoist'], function ($router) {
+    $router->post('/', 'HabitController@handle');
+});

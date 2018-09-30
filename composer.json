@@ -40,7 +40,7 @@
   "scripts": {
     "post-install-cmd": [
       "chmod -R 777 public/",
-      "php artisan migrate:refresh"
+      "php artisan migrate --force"
     ]
   },
   "config": {
