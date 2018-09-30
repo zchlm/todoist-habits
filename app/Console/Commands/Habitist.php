@@ -59,6 +59,11 @@ class Habitist extends Command
         });
 
         foreach ($habits as $habit) {
+            if (false !== strpos($habit['date_string'], 'workday')
+                && Carbon::parse($habit['due_date_utc'])->isWeekend()) {
+                continue;
+            }
+
             if (Carbon::parse($habit['due_date_utc'])->isToday()) {
                 preg_match_all($this->habitRegex, $habit['content'], $matches);
                 $streak = (int) $matches[1][0] + 1;
