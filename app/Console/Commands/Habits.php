@@ -6,21 +6,21 @@ use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
 
-class Habitist extends Command
+class Habits extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'habitist';
+    protected $signature = 'todoist-habits';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Increments day for completed Habits & resets those that were not.';
+    protected $description = 'To be scheduled everyday at midnight. Increments day for completed Habits & resets those that were not.';
 
     /** @var Client */
     protected $guzzleClient;

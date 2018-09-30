@@ -38,11 +38,9 @@
     ]
   },
   "scripts": {
-    "post-root-package-install": [
-      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-    ],
     "post-install-cmd": [
-      "chmod -R 777 public/"
+      "chmod -R 777 public/",
+      "php artisan migrate:refresh"
     ]
   },
   "config": {
