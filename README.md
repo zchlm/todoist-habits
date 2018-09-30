@@ -12,19 +12,19 @@ It integrates Seinfield's "[Don't Break the Chain](https://lifehacker.com/281626
     - `every day`
     - `every workday`
 
-1. Add `[day 0]` to the task.
+1. Add `[day 0]` to the task
 
 1. When you complete the task, `[day 0]` will become `[day 1]`
 
-1. If you fail to complete the task and it becomes overdue, the script will schedule it to `today` and reset `[day X]` to `[day 0]`.
+1. If you fail to complete the task and it becomes overdue, the script will schedule it to `today` and reset `[day X]` to `[day 0]`
 
-1. **Habits will also reset if they are re-scheduled.**
+1. **Habits will also reset if they are re-scheduled**
 
 ## How it works
 
-1. **Scheduled command:** This command runs every day and increments `[day X]` if a habit is complete, otherwise resets.
+1. **Scheduled command:** This command runs every day and increments `[day X]` if a habit is complete, otherwise resets
 
-1. **Resetting re-scheduled habits:** The application uses Todoist webhooks to listen for updated tasks. If a habit's due date has changed, it will reset.
+1. **Resetting re-scheduled habits:** The application uses Todoist webhooks to listen for updated tasks. If a habit's due date has changed, it will reset
 
 ## Configuring with Heroku
 1. Fork and clone the repo
@@ -32,20 +32,19 @@ It integrates Seinfield's "[Don't Break the Chain](https://lifehacker.com/281626
     git clone https://github.com/yourgithubusername/todoist-habits
     ```
 
-1. Create a [Todoist app](https://todoist.com/app_console/create_app) to allow our application to receive webhook events from Todoist
+1. Create a [Todoist app](https://todoist.com/app_console/create_app) and obtain an access token. You can either follow their oAuth authorisation flow using `curl` OR use the provided *Test token*
 
-1. Obtain an access token for your app. You can either follow their oAuth authorisation flow using `curl` OR use the provided *Test token* which can be found in the app console.
-
-1. Create a Heroku app + install the Heroku Scheduler and Postgres add-ons
+1. Create a Heroku app + install the Heroku Scheduler & Postgres add-ons
     ```
     heroku create appname
     heroku addons:create scheduler:standard
     heroku addons:create heroku-postgresql
     ```
 
-1. Add the access token
+1. Add the access token & client secret
     ```
      heroku config:set TODOIST_TOKEN='XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+     heroku config:set TODOIST_CLIENT_SECRET='XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
     ```
 
 1. Push the app to Heroku
