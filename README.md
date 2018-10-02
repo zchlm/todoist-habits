@@ -52,7 +52,7 @@ It integrates Seinfield's "[Don't Break the Chain](https://lifehacker.com/281626
     git push heroku master
     ```
 
-1. Finally run `heroku addons:open scheduler` and schedule the command `php artisan todoist-habits` to run daily at midnight
+1. Finally run `heroku addons:open scheduler` and schedule the command `php artisan todoist-habits` to run daily at midnight in your timezone
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details
