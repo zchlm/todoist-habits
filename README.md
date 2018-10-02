@@ -41,10 +41,11 @@ It integrates Seinfield's "[Don't Break the Chain](https://lifehacker.com/281626
     heroku addons:create heroku-postgresql
     ```
 
-1. Add the access token & client secret
+1. Add the access token, client secret, and [timezone](http://php.net/manual/en/timezones.php)
     ```
      heroku config:set TODOIST_TOKEN='XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
      heroku config:set TODOIST_CLIENT_SECRET='XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+     heroku config:set APP_TIMEZONE='PHP_SUPPORTED_TIMEZONE'
     ```
 
 1. Push the app to Heroku
